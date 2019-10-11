@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Ecomteck
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the ecomteck.com license that is
+ * available through the world-wide-web at this URL:
+ * https://ecomteck.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Ecomteck
+ * @package     Ecomteck_ProductSlider
+ * @copyright   Copyright (c) 2019 Ecomteck (https://ecomteck.com/)
+ * @license     https://ecomteck.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Ecomteck\ProductSlider\Model\Slider"
+                type="Mageplaza\Productslider\Model\Slider" />
+    <preference for="Ecomteck\ProductSlider\Api\Data\SliderSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults" />
+    <preference for="Ecomteck\ProductSlider\Api\Data\SliderInterface"
+                type="Ecomteck\ProductSlider\Model\Slider" />
+    <preference for="Ecomteck\ProductSlider\Api\SliderRepositoryInterface"
+                type="Ecomteck\ProductSlider\Model\SliderRepository" />
+
+    <virtualType name="Ecomteck\ProductSlider\Model\Api\SearchCriteria\SliderCollectionProcessor" type="Magento\Framework\Api\SearchCriteria\CollectionProcessor">
+        <arguments>
+            <argument name="processors" xsi:type="array">
+                <item name="sorting" xsi:type="object">Magento\Framework\Api\SearchCriteria\CollectionProcessor\SortingProcessor</item>
+                <item name="pagination" xsi:type="object">Magento\Framework\Api\SearchCriteria\CollectionProcessor\PaginationProcessor</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Ecomteck\ProductSlider\Model\SliderRepository">
+        <arguments>
+            <argument name="collectionProcessor" xsi:type="object">Ecomteck\ProductSlider\Model\Api\SearchCriteria\SliderCollectionProcessor</argument>
+        </arguments>
+    </type>
+</config>
