@@ -2,6 +2,9 @@
     "name": "ecomteck/module-product-slider",
     "description": "N/A",
     "type": "magento2-module",
+    "require": {
+        "mageplaza/magento-2-product-slider": "2.0.*"
+    },
     "license": [
         "OSL-3.0",
         "AFL-3.0"
@@ -14,5 +17,5 @@
             "Ecomteck\\ProductSlider\\": ""
         }
     },
-    "version": "1.0.1"
+    "version": "1.0.2"
 }
